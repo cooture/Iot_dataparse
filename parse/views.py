@@ -18,12 +18,13 @@ def upload(request):
     jsstr = get_js()
     ctx = execjs.compile(jsstr)
     v = ctx.call('decodeMessage', request.GET['data'])
-
+    v = str(v).replace("'","")
+    print(v)
     content = {
         'data': v,
     }
     return render(request, 'index.html', content)
-# Create your views here.
+
 
 
 
