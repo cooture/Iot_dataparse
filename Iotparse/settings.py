@@ -121,6 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 HERE = os.path.dirname(os.path.abspath(__file__))
+
 HERE = os.path.join(HERE, '../')
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
