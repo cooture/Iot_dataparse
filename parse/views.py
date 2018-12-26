@@ -1,5 +1,8 @@
+import json
+
 from django.shortcuts import render
 import execjs
+from django.http import HttpResponse
 
 
 
@@ -20,10 +23,8 @@ def upload(request):
     v = ctx.call('decodeMessage', request.GET['data'])
 
     print(v)
-    content = {
-        'data': v,
-    }
-    return render(request, 'index.html', content)
+    return HttpResponse(json.dumps(v), content_type="application/json")
+    # return render(request, 'index.html', content)
 
 
 
